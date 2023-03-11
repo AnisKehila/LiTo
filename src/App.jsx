@@ -1,5 +1,4 @@
 import React from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Route, Routes } from "react-router-dom"
 import CartProvider from './context/CartProvider'
 import Navbar from "./components/Navbar"

@@ -12,10 +12,10 @@ function App() {
     <CartProvider>
       <Navbar />
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/shop' element={<Shop />} />
-        <Route path='/shop/:brand' element={<Brand />} />
-        <Route path='/shop/:brand/:car' element={<Car />} />
+        <Route path='/LiTo' element={<Home />} />
+        <Route path='/LiTo/shop' element={<Shop />} />
+        <Route path='/LiTo/shop/:brand' element={<Brand />} />
+        <Route path='/LiTo/shop/:brand/:car' element={<Car />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </CartProvider>

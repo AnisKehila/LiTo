@@ -1,7 +1,9 @@
+import Sidebar from "../components/Sidebar"
+import { Link } from "react-router-dom"
 export function Shop() {
     return (
         <>
-            <div>Shop</div>
+        a
         </>
     )
 }

@@ -7,15 +7,18 @@ import { Car } from './pages/Car'
 import { Brand } from './pages/Brand' 
 import { NotFound } from './pages/NotFound' 
 import Navbar from "./components/Navbar"
+import Sidebar from "./components/Sidebar"
 function App() {
   return (
     <CartProvider>
       <Navbar />
       <Routes>
         <Route path='/LiTo' element={<Home />} />
-        <Route path='/LiTo/shop' element={<Shop />} />
-        <Route path='/LiTo/shop/:brand' element={<Brand />} />
-        <Route path='/LiTo/shop/:brand/:car' element={<Car />} />
+        <Route path='/LiTo/shop' element={<Sidebar />}>
+          <Route index element={<Shop />} />
+          <Route path=':brand' element={<Brand />} />
+          <Route path=':brand/:car' element={<Car />} />
+        </Route>
         <Route path='*' element={<NotFound />} />
       </Routes>
     </CartProvider>

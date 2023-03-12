@@ -17,9 +17,9 @@ function App() {
         <Route path='/LiTo/shop' element={<Sidebar />}>
           <Route index element={<Shop />} />
           <Route path=':brand' element={<Brand />} />
-          <Route path=':brand/:car' element={<Car />} />
         </Route>
-        <Route path='*' element={<NotFound />} />
+        <Route path='/LiTo/shop/:brand/:car' element={<Car />} />
+        <Route path='/LiTo/*' element={<NotFound />} />
       </Routes>
     </CartProvider>
   )

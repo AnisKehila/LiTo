@@ -1,4 +1,4 @@
-import cars from '../data/cars.json';
+import cars from '../data/cars';
 
 export function brands() {
     const arr = []

@@ -131,6 +131,7 @@ nav {
         display: inline-flex;
         padding: 5px;
         position: relative;
+        animation: ease-out;
         a {
             background-color: #FFF;
             color: black;
@@ -138,6 +139,7 @@ nav {
             width: fit-content;
             padding: 16px 42px;
             position: relative;
+            animation: ease-out;
             &::after,
             &::before {
                 content: "";
@@ -203,5 +205,166 @@ nav {
         a {
             margin: 64px auto;
         }
+    }
+}
+main {
+    display: flex;
+    ul.sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 32px;
+        margin: 24px;
+        width: 342px;
+        background-color: rgb(237 235 235 / 40%);
+        font-size: 18px;
+        li {
+            h2 {
+                letter-spacing: 1.4px;
+                font-size: 32px;
+            }
+            span.brand {
+                transform: translate(70px, -8px);
+                display: inline-block;
+                opacity: 0.85;
+                letter-spacing: 2.2px;
+                font-weight: 500;
+                margin-bottom: 40px;
+            }
+            a {
+                padding-left: 24px;
+                font-weight: 500;
+                letter-spacing: 2px;
+                transition: .4s;
+                display: flex;
+                align-items: center;
+                span {
+                    width: 100px;
+                }
+                img {
+                    max-width: 48px;
+                    margin: 0;
+                    opacity: 0;
+                    transition: .4s;
+                }                
+                &:hover {
+                    img {
+                        opacity: 1;
+                        transform: translateX(105px);
+                    }
+                }
+            }
+            a.active {
+                img {
+                    opacity: 1;
+                    transform: translateX(105px);
+                }
+            }
+        }
+    }
+    .cards-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill , minmax(280px,1fr));
+        gap: 40px;
+        margin: 60px 0;
+        margin-right: 20px;
+        flex: calc(100% - 400px);
+        .card {
+            background-color: rgb(230, 228, 228, 42%);
+            display: flex;
+            flex-direction: column;
+            .img {
+                width: 100%;
+                height: 250px;
+                position: relative;
+                img {
+                    object-fit: cover;
+                    transition: .2s;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                }
+                img.back {
+                    width: 0;
+                    height: 0;
+                }
+                img.front {
+                    width: 100%;
+                    height: 100%;
+                }
+                &:hover {
+                    img.front {
+                        width: 0;
+                        height: 0;
+                    }
+                    img.back {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+            .content {
+                padding: 16px;
+                display: flex;
+                justify-content: space-between;
+                .car-name {
+                    font-weight: 500;
+                }
+            }
+            .btns {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                margin-bottom: 16px;
+                button {
+                    padding: 16px;
+                    cursor: pointer;
+                    transition: .2s;
+                    border: none;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
+                .buy {
+                    background-color: #000;
+                    color: #FFF;
+                }
+                .add-to-card {
+                    position: relative;
+                    transition: .4s;
+                    span {
+                        position: relative;
+                        z-index: 1;
+                    }
+                    &::after,
+                    &::before {
+                        content : '';
+                        width: 0;
+                        height: 0;
+                        position: absolute;
+                        background-color: #000;
+                        transition: .4s;
+                    }
+                    &::after {
+                        left: 0;
+                        top: 0;
+                    }
+                    &::before {
+                        right: 0;
+                        bottom: 0;
+                    }
+                    &:hover {
+                        color: #FFF;
+                        &::after,
+                        &::before {
+                            content : '';
+                            width: 100%;
+                            height: 51%;
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }

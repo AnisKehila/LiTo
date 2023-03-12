@@ -21,30 +21,30 @@ export default function Navbar({className}) {
         setDropDown(!dropDown)
     }   
     return (
-        <nav>
-            <Link to='/' ><img src={logo} alt="logo" /></Link>
+        <nav className={className}>
+            <Link to='/LiTo' ><img src={logo} alt="logo" /></Link>
             <div className='links'>
-            <ul>
-                <li><Link to='/shop'>Shop</Link></li>
-                <li className='brand' onClick={dropDownHandler} ref={dropDownref}>
-                    <Link>Brands <IoMdArrowDropdown /></Link>
-                    <ul className={`brands${dropDown ? ' active' : ''}`}>
-                        {brands().map(brand =>
-                            <li key={brand}>
-                                <Link to={`/shop/${brand}`}>{brand}</Link>
-                            </li>
-                        )}
-                    </ul>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <TfiSearch />
-                </li>
-                <li>
-                    <AiOutlineShoppingCart />
-                </li>
-            </ul>
+                <ul>
+                    <li><Link to='/LiTo/shop'>Shop</Link></li>
+                    <li className='brand' onClick={dropDownHandler} ref={dropDownref}>
+                        <Link>Brands <IoMdArrowDropdown /></Link>
+                        <ul className={`brands${dropDown ? ' active' : ''}`}>
+                            {brands().map(brand =>
+                                <li key={brand}>
+                                    <Link to={`/LiTo/shop/${brand}`}>{brand}</Link>
+                                </li>
+                            )}
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <TfiSearch />
+                    </li>
+                    <li>
+                        <AiOutlineShoppingCart />
+                    </li>
+                </ul>
             </div>
         </nav>
     )

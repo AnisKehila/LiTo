@@ -1,12 +1,12 @@
 import React from "react"
 import { Route, Routes } from "react-router-dom"
 import CartProvider from './context/CartProvider'
-import Navbar from "./components/Navbar"
 import { Home } from './pages/Home' 
 import { Shop } from './pages/Shop' 
 import { Car } from './pages/Car' 
 import { Brand } from './pages/Brand' 
 import { NotFound } from './pages/NotFound' 
+import Navbar from "./components/Navbar"
 function App() {
   return (
     <CartProvider>

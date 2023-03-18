@@ -20,7 +20,8 @@ export function Brand() {
                                 <Card  key={car.name} car= {car} brand= {item.brand}/>
                             )
                         )
-                    }if(!isAvailable()) {
+                    }
+                    if(!isAvailable()) {
                         if(index < 1) {
                             return (
                                 <div key="car-unavailable" className="unavailable">

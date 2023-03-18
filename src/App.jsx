@@ -20,7 +20,6 @@ function App() {
         </Route>
         <Route path='/LiTo/shop/:brand/:car' element={<Car />} />
         <Route path='/LiTo/*' element={<NotFound />} />
-        <Route path='/LiTo/notfound' element={<NotFound />} />
       </Routes>
     </CartProvider>
   )

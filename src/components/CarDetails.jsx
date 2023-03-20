@@ -1,6 +1,6 @@
 import { useState } from "react"
-
-export default function CarDetails({car}) {
+import { formatPrice } from "../utils/priceFormater"
+export default function CarDetails({car, brand}) {
     const [currentImg, setCurrentImg]= useState('front');
     return (
         <div className="car-details">
@@ -17,7 +17,13 @@ export default function CarDetails({car}) {
                 </div>
             </div>
             <div className="content">
-                <h1>{car.name}</h1>
+                <h1><span>{brand.brand}: </span>{car.name}</h1>
+                <ul className="features">
+                    <h2>What's Special About This Car ?</h2>
+                    {car.features.map(feature => <li key={feature}>{feature}.</li>)}
+                    <li>Price starts from {formatPrice(car.price)}.</li>
+                </ul>
+                
             </div>
         </div>
     )

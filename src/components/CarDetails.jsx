@@ -1,7 +1,9 @@
 import { useState } from "react"
 import { formatPrice } from "../utils/priceFormater"
+import DriveTest from "./DriveTest";
 export default function CarDetails({car, brand}) {
     const [currentImg, setCurrentImg]= useState('front');
+    const [formToggle, setFormToggle]= useState(false);
     return (
         <div className="car-details">
             <div className="images">
@@ -23,7 +25,20 @@ export default function CarDetails({car, brand}) {
                     {car.features.map(feature => <li key={feature}>{feature}.</li>)}
                     <li>Price starts from {formatPrice(car.price)}.</li>
                 </ul>
-                
+                <div className="btns">
+                    <button onClick={() => setFormToggle(true)}>
+                        Reserve Your Test Drive Today    
+                    </button>
+                    <button>
+                        Buy Now! - Get Your Dream Car
+                    </button>
+                    <button>
+                        Add to Cart - Come Back Any Time
+                    </button>
+                </div>
+            </div>
+            <div className={`form-container${formToggle ? ' active' : ''}`}>
+                <DriveTest setFormToggle={setFormToggle} />
             </div>
         </div>
     )

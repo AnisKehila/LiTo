@@ -4,7 +4,10 @@ import { TfiSearch } from 'react-icons/tfi'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { IoMdArrowDropdown } from 'react-icons/io'
 import { brands } from '../utils/brands'
+import { useContext } from 'react'
+import { CartContext } from '../context/CartProvider'
 export default function Navbar({className}) {
+    const { showCart } = useContext(CartContext)
     return (
         <nav className={className}>
             <Link to='/LiTo' ><img src={logo} alt="logo" /></Link>
@@ -26,7 +29,7 @@ export default function Navbar({className}) {
                     <li>
                         <TfiSearch />
                     </li>
-                    <li>
+                    <li onClick={showCart}>
                         <AiOutlineShoppingCart />
                     </li>
                 </ul>

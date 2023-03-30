@@ -1,8 +1,10 @@
-import { useContext, useEffect } from "react";
-import { CartContext } from "../context/CartProvider";
+import { useContext, useEffect } from "react"
+import { CartContext } from "../context/CartProvider"
 import { GrClose } from "react-icons/gr"
+import { HiOutlineShoppingBag } from 'react-icons/hi'
+import { Link } from "react-router-dom"
 export default function Cart() {
-    const { hideCart, cartOpen, cartRef, totalItems, totalPrice } = useContext(CartContext);
+    const { hideCart, cartOpen, cartRef, totalItems, totalPrice, ShowItems } = useContext(CartContext);
     useEffect(() => {
         const handleClick = (event) => {
             if(cartRef.current && !cartRef.current.contains(event.target)) {
@@ -21,8 +23,33 @@ export default function Cart() {
                     <h1>Your shopping cart</h1>
                     <span onClick={hideCart} className="close-btn" ><GrClose /></span>
                 </div>
-                <p>Total Items: {totalItems()}</p>
-                <p>Total Price: ${totalPrice()}</p>
+                {
+                    totalItems() === 0 ? (
+                        <div className="cart-empty">
+                            Looks like your cart is empty!
+                            <HiOutlineShoppingBag />
+                        </div>
+                    ) : (
+                        <div className="cart-body">
+                            <ShowItems />
+                        </div>
+                    )
+                }
+                <div className="cart-footer">
+                    {
+                        totalItems() === 0 ? (
+                            <button onClick={hideCart}>
+                                <Link to='/LiTo/shop'>Explore cars</Link>
+                            </button>
+                        ) : (<>
+                                <span className="total">Total: {totalPrice()}</span>
+                                <button onClick={hideCart}>
+                                    <Link to='/LiTo'>CHECKOUT</Link>
+                                </button>
+                            </>
+                        )
+                    }
+                </div>
             </div>
         </div>
     );

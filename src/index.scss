@@ -51,6 +51,27 @@ nav {
                     border-bottom: 1px solid #FFF;
                 }
             }
+            span.total-items {
+                font-size: 14px;
+                position: relative;
+                background-color: #ffff;
+                color: black;
+                font-weight: 400;
+                padding: 0px 6px;
+                border-radius: 4px;
+                margin-left: 6px;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    left: -7px;
+                    top: 5px;
+                    border-style: solid;
+                    border-width: 4px 8px 4px 0;
+                    border-color: transparent #ffffff transparent transparent;           
+                }
+            }
         }
         li.brand {
             position: relative;
@@ -123,8 +144,8 @@ nav {
         right: -50%;
         height: 100%;
         z-index: 3;
-        width: 35%;
-        padding: 12px 36px;
+        width: 28%;
+        padding: 48px;
         .cart-header {
             display: flex;
             align-items: center;
@@ -136,6 +157,111 @@ nav {
                 font-size: 20px;
                 display: flex;
                 cursor: pointer;
+            }
+        }
+        .cart-body {
+            max-height: 70vh;
+            margin-top: 32px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            .car-card {
+                display: flex;
+                gap: 36px;
+                align-items: center;
+                img {
+                    object-fit: cover;
+                    width: 148px;
+                    height: 114px;
+                    border-radius: 8px;
+                }
+                .car-info {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 14px;
+                    font-weight: 600;
+                    letter-spacing: 1.4px;
+                    .quantity {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        span.value {
+                            display: flex;
+                            justify-content: center;
+                            border: 1px solid black;
+                            padding: 2px 8px;
+                        }
+                        span.func-btn {
+                            display: inline-flex;
+                            justify-content: center;
+                            cursor: pointer;
+                            padding: 4px;
+                            width: 24px;
+                            transition: .1s;
+                            &:hover {
+                                background-color: beige;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .cart-footer {
+            position: absolute;
+            top: 84%;
+            width: calc(100% - 96px);
+            button {
+                width: 100%;
+                position: relative;
+                padding: 24px;
+                cursor: pointer;
+                background-color: transparent;
+                border: 1px solid black;
+                border: 1px solid #b8b4b2;
+                text-transform: uppercase;
+                a {
+                    font-size: 17px;
+                    letter-spacing: 1.4px;
+                    color: #231f20;
+                    transition: all .4s cubic-bezier(0.65, 0.05, 0.36, 1);
+                    font-weight: 400;
+                }
+                &::before {
+                    content: '';
+                    position: absolute;
+                    background-color: #231f20;
+                    transition: all .4s cubic-bezier(0.65, 0.05, 0.36, 1);
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    z-index: -1;
+                    height: 0%;
+                }
+                &:hover {
+                    a {
+                        color: #FFF;
+                    }
+                    &::before {
+                        height: 100%;
+                    }
+                }
+            }
+        }
+        .cart-empty {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            gap: 20px;
+            text-align: center;
+            font-size: 22px;
+            color: #424141bd;
+            svg {
+                font-size: 48px;
             }
         }
     }
@@ -626,7 +752,7 @@ main {
         height: 100%;
     }
     .form-container {
-        position: absolute;
+        position: fixed;
         width: 0;
         height: 0;
         left: 50%;

@@ -1,9 +1,12 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { formatPrice } from "../utils/priceFormater"
-import DriveTest from "./DriveTest";
+import DriveTest from "./DriveTest"
+import { CartContext } from '../context/CartProvider'
+
 export default function CarDetails({car, brand}) {
     const [currentImg, setCurrentImg]= useState('front');
     const [formToggle, setFormToggle]= useState(false);
+    const { showCart, addItem } = useContext(CartContext);
     return (
         <div className="car-details">
             <div className="images">
@@ -29,10 +32,10 @@ export default function CarDetails({car, brand}) {
                     <button onClick={() => setFormToggle(true)}>
                         Reserve Your Test Drive Today    
                     </button>
-                    <button>
+                    <button onClick={() => { addItem({...car, quantity : 1, brand: brand}) ; showCart() }}>
                         Buy Now! - Get Your Dream Car
                     </button>
-                    <button>
+                    <button  onClick={() => { addItem({...car, quantity : 1, brand: brand}) }}>
                         Add to Cart - Come Back Any Time
                     </button>
                 </div>

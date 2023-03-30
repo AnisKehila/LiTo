@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom"
 import { formatPrice } from '../utils/priceFormater'
 import {AiOutlineShoppingCart} from 'react-icons/ai'
+import { useContext } from "react"
+import { CartContext } from "../context/CartProvider"
 export default function Card({car, brand}) {
+    const { addItem, showCart } = useContext(CartContext);
     return (
     <div className="card">
         <Link className="img" to={`/LiTo/shop/${brand}/${car.name}`}>
@@ -14,13 +17,13 @@ export default function Card({car, brand}) {
             <span className="car-price">{formatPrice(car.price)}</span>
         </div>
         <div className="btns">
-            <button className="add-to-card">
+            <button className="add-to-card" onClick={() => addItem({...car, quantity : 1, brand: brand})}>
                 <span>
                     <AiOutlineShoppingCart />&nbsp; 
                     Add To cart 
                 </span>
             </button>
-            <button className="buy">
+            <button className="buy" onClick={() => { addItem({...car, quantity : 1, brand: brand}) ; showCart() }}>
                 Buy Now
             </button>
         </div>

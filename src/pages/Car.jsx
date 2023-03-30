@@ -2,15 +2,12 @@ import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import CarDetails from "../components/CarDetails";
 import brands from '../data/cars'
-import { CartContext } from '../context/CartProvider'
 
 export function Car() {
-    const values = useContext(CartContext);
     const { car } = useParams();
     const [currentCar, setCurrentCar] = useState(null);
     const [currentBrand, setCurrentBrand] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
-    console.log(values); 
     useEffect(() => {
         for (const brand of brands) {
             for (const carObj of brand.cars) {

@@ -144,7 +144,7 @@ nav {
         right: -50%;
         height: 100%;
         z-index: 3;
-        width: 28%;
+        width: 480px;
         padding: 48px;
         .cart-header {
             display: flex;
@@ -272,6 +272,11 @@ nav {
     }
     .cart-info {
         right: 0;
+    }
+    @media (max-width: 998px) {
+        .cart-info {
+            width: 100%;
+        }
     }
 }
 .hero-section {
